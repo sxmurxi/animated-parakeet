@@ -48,3 +48,4 @@ jobs:
       - name: Run tests
         run: |
           docker run --rm ${{ secrets.DOCKER_USERNAME }}/nextcloud:latest ls
+  # sadsad
