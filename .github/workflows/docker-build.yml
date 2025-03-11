@@ -3,7 +3,7 @@ name: Build and Publish Nextcloud Docker Image
 on:
   push:
     branches:
-      - master  # Запускать workflow на каждый push в ветку master
+      - main  # Запускать workflow на каждый push в ветку master
 
 jobs:
   build:
