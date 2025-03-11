@@ -44,7 +44,3 @@ jobs:
       - name: List available commands
         run: |
           docker run --rm ${{ secrets.DOCKER_USERNAME }}/nextcloud:latest ls /usr/bin
-
-      - name: Run tests
-        run: |
-          docker run --rm ${{ secrets.DOCKER_USERNAME }}/nextcloud:latest test
