@@ -41,6 +41,6 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/nextcloud:latest
 
-      - name: List available commands
+      - name: Run tests
         run: |
-          docker run --rm ${{ secrets.DOCKER_USERNAME }}/nextcloud:latest ls /usr/bin
+          docker run --rm ${{ secrets.DOCKER_USERNAME }}/nextcloud:latest test
