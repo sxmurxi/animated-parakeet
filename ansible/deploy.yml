@@ -1,2 +1,5 @@
-[ec2]
-ec2-server ansible_host=13.60.45.245 ansible_user=ubuntu
+ec2:
+  hosts:
+	ec2-server:
+	  ansible_host: 13.60.45.245
+	  ansible_user: ubuntu
