@@ -1,5 +1,25 @@
-ec2:
-  hosts:
-	ec2-server:
-	  ansible_host: 13.60.45.245
-	  ansible_user: ubuntu
+---
+- name: Deploy Nextcloud on EC2
+  hosts: ec2
+  become: yes
+  tasks:
+    - name: Install Docker
+      package:
+        name: docker.io
+        state: present
+
+    - name: Install Docker Compose
+      shell: |
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+
+    - name: Clone repository
+      git:
+        repo: 'https://github.com/your-username/nextcloud-docker-deploy.git'
+        dest: /home/ubuntu/nextcloud
+        version: master
+
+    - name: Set up Docker containers
+      shell: |
+        cd /home/ubuntu/nextcloud
+        docker-compose up -d
